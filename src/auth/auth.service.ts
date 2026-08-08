@@ -1,7 +1,4 @@
-import { Injectable, ConflictException } from '@nestjs/common';
-import { InjectRepository } from '@mikro-orm/nestjs';
-import { User } from '../user/user.entity';
-import { EntityManager } from '@mikro-orm/postgresql';
+import { Injectable } from '@nestjs/common';
 
 @Injectable()
 export class AuthService {}

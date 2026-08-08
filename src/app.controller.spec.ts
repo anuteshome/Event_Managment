@@ -16,7 +16,9 @@ describe('AppController', () => {
 
   describe('root', () => {
     it('should return "Event Management Backend is Running..."', () => {
-      expect(appController.getHello()).toBe('Event Management Backend is Running...');
+      expect(appController.getHello()).toBe(
+        'Event Management Backend is Running...',
+      );
     });
   });
 });
