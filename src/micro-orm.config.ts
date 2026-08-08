@@ -8,7 +8,7 @@ export default defineConfig({
          port:5432,
        
   entities: ['./dist/**/*.entity.js'],
-  entitiesTs: ['./src/**/*.entity.ts'],
+ entitiesTs: ['./src/**/*.entity.ts'],
 
   debug: true,
 })
