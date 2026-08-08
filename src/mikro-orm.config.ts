@@ -1,7 +1,7 @@
 import {defineConfig} from "@mikro-orm/postgresql";
 
 export default defineConfig({
-         dbName:'event_postgres',
+         dbName:'event_postgress',
          password:'postgres',
          user:'postgres',
          host:'localhost',

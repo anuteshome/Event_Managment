@@ -6,8 +6,8 @@ export class User {
     @PrimaryKey({type: 'number'})
     id!: number;
     
-    @Property({unique:true,type:'string'})
-    emal!: string;
+    @Property({type:'string',unique:true})
+    email!: string;
 
     @Property({type:'string'})
     password!: string;
