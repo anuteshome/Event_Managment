@@ -8,7 +8,7 @@ import { AppService } from './app.service';
 
 @Module({
   imports: [
-    
+    MikroOrmModule.forRoot(MikroOrmConfig)
   ],
   controllers: [AppController],
   providers: [AppService],
