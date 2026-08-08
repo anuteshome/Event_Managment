@@ -3,22 +3,22 @@ import { Entity,PrimaryKey,Property} from '@mikro-orm/decorators/legacy';
 
 @Entity()
 export class User {
-    @PrimaryKey()
+    @PrimaryKey({type: 'number'})
     id!: number;
     
-    @Property({unique:true})
+    @Property({unique:true,type:'string'})
     emal!: string;
 
-    @Property()
+    @Property({type:'string'})
     password!: string;
     
-    @Property()
+    @Property({type:'string'})
     firstName!: string;
 
-    @Property()
+    @Property({type:'string'})
     lastName!:string;
 
-    @Property()
+    @Property({type:'Date'})
     createdAt: Date = new Date;
 
       
