@@ -1,2 +1,2 @@
-import {isEmpty} from 'class-validator';
+import {IsEmail,IsNotEmpty,IsString,MinLength} from 'class-validator';
 
