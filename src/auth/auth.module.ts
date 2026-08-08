@@ -4,6 +4,7 @@ import { AuthService } from './auth.service';
 import { User } from 'src/user/user.entity';
 import { MikroOrmModule } from '@mikro-orm/nestjs';
 
+
 @Module({
   imports:[
     MikroOrmModule.forFeature([User])
