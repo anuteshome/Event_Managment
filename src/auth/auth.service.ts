@@ -1,5 +1,6 @@
 import { Injectable,ConflictException } from "@nestjs/common";
-import {EntityRepository,EntityManager} from "@mikro-orm/core";
+import {EntityRepository} from "@mikro-orm/core";
+import {EntityManager} from "@mikro-orm/postgresql";
 import {InjectRepository} from "@mikro-orm/nestjs";
 import bcrypt from "bcryptjs";
 
