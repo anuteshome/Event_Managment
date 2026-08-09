@@ -22,10 +22,20 @@ private readonly em:EntityManager
     });
       
      if(existingUser){
-      throw new ConflictException("")
+      throw new ConflictException("Email Already Used");
      }
      
+     const hashedPassword:string = await bcrypt.hash(dto.password,10);
+     
+    const user = this.userRepository.create({
+      email:dto.email,
+      password:hashedPassword,
+      firstName:dto.firstName,
+      lastName:dto.lastName,
+    createdAt:new Date()
+    });
 
+    
 
 
   }
