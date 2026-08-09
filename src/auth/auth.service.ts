@@ -35,9 +35,10 @@ private readonly em:EntityManager
     createdAt:new Date()
     });
 
-    
+    this.em.persist(user),
+    await this.em.flush();
 
-
+     return
   }
 
 }
