@@ -1,7 +1,7 @@
 import { ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
-
+import {DocumentBuilder,SwaggerModule} from '@nestjs/swagger';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -13,6 +13,15 @@ async function bootstrap() {
     }),
   );
 
+  const config = new DocumentBuilder()
+  .setTitle("Event Management System with Nest")
+  .setDescription("This is Event management System build with Nest js with Docker and Ci/CD pipeline and Swagger")
+  .setVersion("1.0.1")
+  .build()
+
+  const document = SwaggerModule.createDocument(app,config);
+
+  SwaggerModule.setup("api/nest",app,document);
 
 
 
