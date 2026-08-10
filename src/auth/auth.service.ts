@@ -62,6 +62,11 @@ async login (dto:LoginDto){
   const ComparedPassword = await bcrypt.compare(dto.password,checkuser.password);
   if(ComparedPassword){
     console.log("Login Success")
+    return {
+      email: checkuser.email,
+      firstName: checkuser.firstName,
+      lastName: checkuser.lastName,
+    }
   }else{
     throw new UnauthorizedException("Wrong Password!")
   }
