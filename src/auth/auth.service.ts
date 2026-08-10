@@ -1,4 +1,4 @@
-import { ConflictException, Injectable } from '@nestjs/common';
+import { ConflictException, Injectable, UnauthorizedException } from '@nestjs/common';
 import { EntityRepository } from '@mikro-orm/core';
 import { EntityManager } from '@mikro-orm/postgresql';
 import { InjectRepository } from '@mikro-orm/nestjs';
@@ -56,11 +56,18 @@ async login (dto:LoginDto){
   email:dto.email
  });
 
+
  if(checkuser){
-  console.log("We find the user!")
+  console.log("We find the user!");
+  const ComparedPassword = await bcrypt.compare(dto.password,checkuser.password);
+  if(ComparedPassword){
+    console.log("Login Success")
+  }else{
+    throw new UnauthorizedException("Wrong Password!")
+  }
+ }else{
+  throw new UnauthorizedException("User Not found!")
  }
-
-
 
 }
 
