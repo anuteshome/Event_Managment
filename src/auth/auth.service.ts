@@ -6,6 +6,7 @@ import bcrypt from 'bcryptjs';
 
 import { User } from '../user/user.entity';
 import { SignupDto } from './dto/signup.dto';
+import { LoginDto } from './dto/login.dto';
 
 @Injectable()
 export class AuthService {
@@ -48,4 +49,19 @@ await this.em.flush();
       createdAt: user.createdAt,
     };
   }
+
+async login (dto:LoginDto){
+
+ const checkuser= await this.userRepository.findOne({
+  email:dto.email
+ });
+
+ if(checkuser){
+  console.log("We find the user!")
+ }
+
+
+
+}
+
 }
