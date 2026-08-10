@@ -63,9 +63,7 @@ async login (dto:LoginDto){
   if(ComparedPassword){
     console.log("Login Success")
     return {
-      email: checkuser.email,
-      firstName: checkuser.firstName,
-      lastName: checkuser.lastName,
+     message:"Login Success Thank you!"
     }
   }else{
     throw new UnauthorizedException("Wrong Password!")
