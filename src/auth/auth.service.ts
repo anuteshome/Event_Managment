@@ -3,6 +3,7 @@ import { EntityRepository } from '@mikro-orm/core';
 import { EntityManager } from '@mikro-orm/postgresql';
 import { InjectRepository } from '@mikro-orm/nestjs';
 import bcrypt from 'bcryptjs';
+import {JwtService} from '@nestjs/jwt';
 
 import { User } from '../user/user.entity';
 import { SignupDto } from './dto/signup.dto';
@@ -13,7 +14,7 @@ export class AuthService {
   constructor(
     @InjectRepository(User)
     private readonly userRepository: EntityRepository<User>,
-
+    private readonly jwtModule:JwtService,
     private readonly em: EntityManager,
   ) {}
 
