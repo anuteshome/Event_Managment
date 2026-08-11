@@ -51,6 +51,8 @@ await this.em.flush();
     };
   }
 
+
+
 async login (dto:LoginDto){
 
  const checkuser= await this.userRepository.findOne({
@@ -63,8 +65,15 @@ async login (dto:LoginDto){
   const ComparedPassword = await bcrypt.compare(dto.password,checkuser.password);
   if(ComparedPassword){
     console.log("Login Success")
+        //generating jwt token
+       const token=  await this.jwtModule.sign({
+       sub:checkuser.id,
+       email:checkuser.email
+       })
+    
     return {
-     message:"Login Success Thank you!"
+     message:"Login Success Thank you!",
+     token
     }
   }else{
     throw new UnauthorizedException("Wrong Password!")
